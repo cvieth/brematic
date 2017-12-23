@@ -1,0 +1,18 @@
+{
+  "name": "brematic",
+  "version": "1.0.0",
+  "description": "Library to control Brennerstuhl Brematic devices via Node.js",
+  "main": "brematic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvieth/brematic/"
+  },
+  "keywords": [
+    "brematic"
+  ],
+  "author": "Christoph Vieth <christoph@vieth.me>",
+  "license": "MIT"
+}
