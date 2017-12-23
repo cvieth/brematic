@@ -35,4 +35,7 @@ Brematic.prototype.sendMessage = function(message) {
   });
 };
 
+Brematic.prototype.addDevice = (driver, config) => {
+};
+
 module.exports = Brematic;
