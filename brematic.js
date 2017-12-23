@@ -10,7 +10,7 @@ class Brematic {
    * @property {String} host Hostname of Brematic Gateway
    * @property {number} port Port of Brematic Gateway
    * @property {String} deviceType Type of device
-   * @property {Object} params Parameters for driver
+   * @property {Object} deviceConfig Parameters for driver
    */
 
   /**
@@ -45,15 +45,58 @@ class Brematic {
 
       try {
         var Device = require(driverPath);
-        this.device = new Device(config.params);
+        this.device = new Device(config.deviceConfig);
       } catch (err) {
+        console.error(err);
         throw new Error('Device driver not found!');
       }
     }
   };
 
+  /**
+  * Send a Message to Gateway
+  * @private
+  * @param {String} message Message to be send
+  */
+  sendMessage(message) {
+    return new Promise((resolve, reject) => {
+      var dgram = require('dgram');
+      var buffer = new Buffer(message);
+
+      var client = dgram.createSocket('udp4');
+      client.send(
+        buffer,
+        0,
+        buffer.length,
+        this.port,
+        this.host,
+        (err, bytes) => {
+          // Close connection
+          client.close();
+
+          if (err) {
+            reject(err);
+          } else {
+            resolve(bytes);
+          }
+        });
+    });
+  };
+
+  /**
+   * @public
+   * @param {*} value
+   */
   setValue(value) {
-    console.log(value);
+    this.device.setValue(value);
+    return this.sendMessage(this.device.createMessage());
+  }
+
+  /**
+   * @public
+   */
+  getValue() {
+    return this.device.getValue();
   }
 }
 
