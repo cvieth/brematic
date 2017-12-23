@@ -1,7 +1,8 @@
 'use strict';
 
 const DEFAULT_PORT = 49880;
-const PATH_DRIVER = './devices/';
+const DEVICES_PATH = './devices/';
+const DEVICES_DEFAULT = 'default.js';
 
 class Brematic {
 
@@ -38,9 +39,9 @@ class Brematic {
       // Load configured driver
       var driverPath = '';
       if (config.hasOwnProperty('deviceType')) {
-        driverPath = PATH_DRIVER + config.deviceType + '.js';
+        driverPath = DEVICES_PATH + config.deviceType + '.js';
       } else {
-        driverPath = PATH_DRIVER + 'default.js';
+        driverPath = DEVICES_PATH + DEVICES_DEFAULT;
       }
 
       try {
