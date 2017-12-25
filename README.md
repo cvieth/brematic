@@ -1,4 +1,4 @@
-# Brematic Library for Node.js
+# Brematic Package for Node.js
 [![npm version](https://badge.fury.io/js/brematic.svg)](https://badge.fury.io/js/brematic)
 [![Beerpay](https://beerpay.io/cvieth/brematic/badge.svg?style=beer)](https://beerpay.io/cvieth/brematic)
 [![Beerpay](https://beerpay.io/cvieth/brematic/make-wish.svg?style=flat)](https://beerpay.io/cvieth/brematic)
@@ -28,15 +28,17 @@ yarn add brematic
 
 Below you can find a small example of how this package can be used.
 
-``` javascript
+```javascript
 let Brematic = require('brematic');
 
-let configuration = {};
+let configuration = {
+  // See configuration section
+};
 let myDevice = new Brematic(configuration);
 
 myDevice.setValue(false);
+console.log(myDevice.getValue();)
 ```
-
 ### Configuration
 
 | Name         | Optional | Type     | Description                                                             |
@@ -56,3 +58,9 @@ The devices listed below have been successfully tested with this package:
 | ------------ | ----------- | ----------------------------- | ------- |
 | Brennerstuhl | RCS1000N    | [Default](devices/default.md) | -       |
 | Pollin       | 2605        | [Default](devices/default.md) | -       |
+
+## Contributing
+
+I'm more than happy for any kind fo feedback! If you'd like to participate in this project, feel free to contact me. You can reach me directly either via [Twitter](https://twitter.com/evilop) or [E-Mail](mailto:christoph@vieth.me).
+
+More Details about Contributing can be found [here](devices/CONTRIBUTING.md).
