@@ -63,4 +63,4 @@ The devices listed below have been successfully tested with this package:
 
 I'm more than happy for any kind fo feedback! If you'd like to participate in this project, feel free to contact me. You can reach me directly either via [Twitter](https://twitter.com/evilop) or [E-Mail](mailto:christoph@vieth.me).
 
-More Details about Contributing can be found [here](devices/CONTRIBUTING.md).
+More Details about Contributing can be found [here](CONTRIBUTING.md).
